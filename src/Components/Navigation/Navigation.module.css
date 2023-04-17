@@ -1,3 +1,9 @@
-.navLinkActive{
+.navLink{
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#nav-dropdown{
     color: blue;
+    font-weight: bold;
 }

@@ -1,22 +1,25 @@
 import React from 'react';
 import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
-
+import {NavLink} from "react-router-dom";
+import styles from "./Navigation.module.css"
 const Navigation = () => {
     return (
         <div>
             <Navbar expand="sm" bg="light" variant="light">
                 <Container>
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Домашня сторінка</Nav.Link>
-                        <NavDropdown title="Карта Викидів">
-                            <NavDropdown.Item href="/air">
-                                Повітря
+                        <Nav.Link active>
+                            <NavLink to={"/"} className={styles.navLink}>Домашня сторінка</NavLink>
+                        </Nav.Link>
+                        <NavDropdown active title="Карта Викидів" id="nav-dropdown">
+                            <NavDropdown.Item>
+                                <NavLink to={"/air"} className={styles.navLink}>Повітря</NavLink>
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/radiation">
-                                Радіація
+                            <NavDropdown.Item>
+                                <NavLink to={"/radiation"} className={styles.navLink}>Радіація</NavLink>
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/water">
-                                Вода
+                            <NavDropdown.Item>
+                                <NavLink to={"/water"} className={styles.navLink}>Вода</NavLink>
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
