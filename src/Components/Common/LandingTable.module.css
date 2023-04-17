@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.tableHome {
+    border: 1px  grey;
+    width: 1110px;
+}
+
+.tdHome {
+    border: 0.5px solid grey;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+th {
+    border: 0.5px solid grey;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+td {
+    border: 0.5px solid grey;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.landingMain{
+    margin-top: 30px;
+}
+
+.navbarFont {
+    font-size: 16px;
+}
+
+.customTable {
+    margin-top: 140px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.customTableHeader {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+}

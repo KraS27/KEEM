@@ -1,0 +1,9 @@
+.carouselImg{
+    height: 350px;
+    object-fit: cover;
+}
+.carouselCaptionText{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
