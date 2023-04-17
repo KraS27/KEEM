@@ -1,6 +1,6 @@
 import React from 'react';
-import LandingCarousel from "../../Common/LandingCarousel";
-import LandingTable from "../../Common/LandingTable";
+import LandingCarousel from "./LandingCarousel";
+import LandingTable from "./LandingTable";
 
 const Landing = () => {
     return (

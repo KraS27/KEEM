@@ -4,7 +4,7 @@ import {Container} from "react-bootstrap";
 
 const LandingTable = () => {
     return (
-        <div className={`container-fluid ${styles.landingMain}`}>
+        <div className={`${styles.landingMain}`}>
             <Container>
                 <p className={`text-center ${styles.customTableHeader}`}>Комплексний еколого-економіко-енергетичний моніторинг (КЕЕЕМ) базується на таких основних принципах:</p>
                 <div className={`position-absolute start-50 translate-middle ${styles.customTable}`}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Carousel} from "react-bootstrap";
-import globe from "../../static/img/globe.jpg"
-import miniGlobe from "../../static/img/miniglobe.jpg"
-import windmills from "../../static/img/windmills.jpg"
+import globe from "../../../static/img/globe.jpg"
+import miniGlobe from "../../../static/img/miniglobe.jpg"
+import windmills from "../../../static/img/windmills.jpg"
 import styles from "./LandingCarousel.module.css"
 
 const LandingCarousel = () => {
