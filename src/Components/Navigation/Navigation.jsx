@@ -11,7 +11,7 @@ const Navigation = () => {
                         <Nav.Link active>
                             <NavLink to={"/"} className={styles.navLink}>Домашня сторінка</NavLink>
                         </Nav.Link>
-                        <NavDropdown active title="Карта Викидів" id="nav-dropdown">
+                        <NavDropdown title="Карта Викидів" id="nav-dropdown">
                             <NavDropdown.Item>
                                 <NavLink to={"/air"} className={styles.navLink}>Повітря</NavLink>
                             </NavDropdown.Item>
