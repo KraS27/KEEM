@@ -12,7 +12,7 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Landing/>}/>
-                <Route path="/map" element={<Map/>}/>
+                <Route path="/map/*" element={<Map/>}/>
             </Routes>
         </BrowserRouter>
     </div>
