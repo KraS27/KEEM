@@ -13,13 +13,13 @@ const Navigation = () => {
                         </Nav.Link>
                         <NavDropdown title="Карта Викидів" id="nav-dropdown">
                             <NavDropdown.Item>
-                                <NavLink to={"/air"} className={styles.navLink}>Повітря</NavLink>
+                                <NavLink to={"map"} className={styles.navLink}>Повітря</NavLink>
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <NavLink to={"/radiation"} className={styles.navLink}>Радіація</NavLink>
+                                <NavLink to={"map/radiation"} className={styles.navLink}>Радіація</NavLink>
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <NavLink to={"/water"} className={styles.navLink}>Вода</NavLink>
+                                <NavLink to={"map/water"} className={styles.navLink}>Вода</NavLink>
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
