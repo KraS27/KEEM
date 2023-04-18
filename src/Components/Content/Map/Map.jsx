@@ -21,7 +21,6 @@ const defaultOptions = {
     clickableIcons: false,
     keyboardShortcuts: false,
     disableDoubleClickZoom: true,
-    fullscreenControlL: false
 }
 
 const Map = () => {

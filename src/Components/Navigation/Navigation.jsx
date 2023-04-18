@@ -15,6 +15,7 @@ const Navigation = () => {
                             <NavDropdown.Item><NavLink to={"map/1"} className={styles.navLink}>Повітря</NavLink></NavDropdown.Item>
                             <NavDropdown.Item><NavLink to={"map/2"} className={styles.navLink}>Радіація</NavLink></NavDropdown.Item>
                             <NavDropdown.Item><NavLink to={"map/3"} className={styles.navLink}>Вода</NavLink></NavDropdown.Item>
+                            <NavDropdown.Item> </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
