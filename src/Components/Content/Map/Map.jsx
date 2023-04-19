@@ -1,6 +1,7 @@
 import React from 'react';
 import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
 import s from "./Map.module.css"
+import axios from "axios";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const containerStyle = {
@@ -23,9 +24,9 @@ const defaultOptions = {
     disableDoubleClickZoom: true,
 }
 
+let markers = [];
+
 const Map = () => {
-
-
 
     const mapRef = React.useRef(undefined);
     const onLoad = React.useCallback(function callback(map) {
@@ -39,26 +40,14 @@ const Map = () => {
         googleMapsApiKey: API_KEY
     })
 
-    const markers = [
-        {
-            lat: 50.4311172066137,
-            lng: 30.6573808193207
-        },
-        {
-            lat: 52.4311172066137,
-            lng: 32.6573808193207
-        },
-        {
-            lat: 54.4311172066137,
-            lng: 34.6573808193207
-        },
-        {
-            lat: 56.4311172066137,
-            lng: 36.6573808193207
-        },
-    ]
+    axios.get("https://localhost:7208/Poi/GetPois").then(response => {
+        debugger;
+        markers = response.data;
+    })
 
-    const markersMap = markers.map(m => <Marker position={m}/>)
+    debugger;
+    const markersMap = markers.map(m => <Marker position={{lat: m.coordLat, lng: m.coordLng}}/>)
+
     return isLoaded ? (
         <div className={s.mapContainer}>
             <GoogleMap
