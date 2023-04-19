@@ -25,6 +25,8 @@ const defaultOptions = {
 
 const Map = () => {
 
+
+
     const mapRef = React.useRef(undefined);
     const onLoad = React.useCallback(function callback(map) {
         mapRef.current = map;
