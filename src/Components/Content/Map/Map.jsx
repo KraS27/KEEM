@@ -40,13 +40,13 @@ const Map = () => {
         googleMapsApiKey: API_KEY
     })
 
-    axios.get("https://localhost:7208/Poi/GetPois").then(response => {
+    axios.get("https://localhost:7199/pois").then(response => {
         debugger;
-        markers = response.data;
+        markers = response.data.data;
     })
 
     debugger;
-    const markersMap = markers.map(m => <Marker position={{lat: m.coordLat, lng: m.coordLng}}/>)
+    const markersMap = markers.map(m => <Marker position={{lat: m.latitude, lng: m.longitude}}/>)
 
     return isLoaded ? (
         <div className={s.mapContainer}>
