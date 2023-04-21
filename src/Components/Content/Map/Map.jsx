@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {GoogleMap, InfoWindow, Marker, useJsApiLoader} from "@react-google-maps/api";
 import s from "./Map.module.css"
 import axios from "axios";
+import {Button} from "react-bootstrap";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const containerStyle = {
@@ -50,7 +51,7 @@ const Map = () => {
     const markersMap = markers.map(m => <Marker position={{lat: m.latitude, lng: m.longitude}}
                                                 onClick = {() => { setSelectedMarker(m)}}
     />)
-    debugger;
+
     return isLoaded ? (
         <div className={s.mapContainer}>
             <GoogleMap
@@ -67,7 +68,10 @@ const Map = () => {
                                 onCloseClick={() => { setSelectedMarker(null) }}
                                 options={{pixelOffset: new window.google.maps.Size(0, -40)}}
                     >
-                        <p>{selectedMarker.nameObject}</p>
+                        <div>
+                            <p>{selectedMarker.nameObject}</p>
+                            <Button>fasfsa</Button>
+                        </div>
                     </InfoWindow>
                 )}
             </GoogleMap>
