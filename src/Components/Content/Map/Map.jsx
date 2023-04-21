@@ -1,5 +1,5 @@
-import React from 'react';
-import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
+import React, {useState} from 'react';
+import {GoogleMap, InfoWindow, Marker, useJsApiLoader} from "@react-google-maps/api";
 import s from "./Map.module.css"
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -28,26 +28,29 @@ let markers = [];
 
 const Map = () => {
 
-    const mapRef = React.useRef(undefined);
+    const mapRef = React.useRef(null);
+    const [selectedMarker, setSelectedMarker] = useState(undefined);
     const onLoad = React.useCallback(function callback(map) {
         mapRef.current = map;
-    }, [])
+    }, []);
     const onUnmount = React.useCallback(function callback(map) {
         mapRef.current = undefined;
-    }, [])
+    }, []);
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: API_KEY
-    })
+    });
+
 
     axios.get("https://localhost:7199/pois").then(response => {
         debugger;
         markers = response.data.data;
     })
 
+    const markersMap = markers.map(m => <Marker position={{lat: m.latitude, lng: m.longitude}}
+                                                onClick = {() => { setSelectedMarker(m)}}
+    />)
     debugger;
-    const markersMap = markers.map(m => <Marker position={{lat: m.latitude, lng: m.longitude}}/>)
-
     return isLoaded ? (
         <div className={s.mapContainer}>
             <GoogleMap
@@ -59,6 +62,14 @@ const Map = () => {
                 options={defaultOptions}
             >
                 {markersMap}
+                {selectedMarker && (
+                    <InfoWindow position={{lat: selectedMarker.latitude, lng: selectedMarker.longitude}}
+                                onCloseClick={() => { setSelectedMarker(null) }}
+                                options={{pixelOffset: new window.google.maps.Size(0, -40)}}
+                    >
+                        <p>{selectedMarker.nameObject}</p>
+                    </InfoWindow>
+                )}
             </GoogleMap>
         </div>
     ) : <></>
