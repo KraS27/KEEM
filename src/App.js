@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from "./Components/Navigation/Navigation";
 import Landing from "./Components/Content/Landing/Landing";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Map from "./Components/Content/Map/Map";
+import MapContainer from "./Components/Content/Map/MapContainer";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Landing/>}/>
-                <Route path="/map/*" element={<Map/>}/>
+                <Route path="/map/*" element={<MapContainer/>}/>
             </Routes>
         </BrowserRouter>
     </div>
