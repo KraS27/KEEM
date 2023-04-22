@@ -23,12 +23,12 @@ const defaultOptions = {
     keyboardShortcuts: false,
     disableDoubleClickZoom: true,
 }
-let pois = [];
 
 const MapContainer = () => {
 
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
+    const [pois, setPois] = useState([]);
     const onLoad = React.useCallback(function callback(map) {
         mapRef.current = map;
     }, []);
@@ -41,7 +41,7 @@ const MapContainer = () => {
     });
 
     axios.get("https://localhost:7199/pois").then(response => {
-        pois = response.data.data;
+        setPois(response.data.data);
     })
 
     if(isLoaded){
