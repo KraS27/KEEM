@@ -29,7 +29,7 @@ const Map = (props) => {
                             <p className={s.textInfo}>Назва точки: {props.selectedMarker.nameObject}</p>
                             <p className={s.textInfo}>Розташування: {props.selectedMarker.description}</p>
                             <p className={s.textInfo}>Тип: {props.selectedMarker.typeName}</p>
-                            <Button><ModalWindow/></Button>
+                            <ModalWindow />
                         </div>
                     </InfoWindow>
                 )}

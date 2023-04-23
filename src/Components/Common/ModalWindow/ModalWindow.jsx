@@ -12,7 +12,7 @@ function ModalWindow() {
     return (
         <div>
             <Button variant="primary" onClick={handleShow}>
-                View more info
+                Детальніше
             </Button>
 
             <Modal show={show} onHide={handleClose}>
