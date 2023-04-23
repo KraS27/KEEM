@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useJsApiLoader} from "@react-google-maps/api";
 import axios from "axios";
 import Map from "./Map"
@@ -27,7 +27,7 @@ const defaultOptions = {
 
 const MapContainer = () => {
 
-    debugger;
+    console.log("MapContainer")
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
     const [pois, setPois] = useState([]);
@@ -42,9 +42,12 @@ const MapContainer = () => {
         id: 'google-map-script',
         googleMapsApiKey: API_KEY
     });
-    axios.get(`https://localhost:7199/pois?idEnvironment=${urlParams.idEnvironment}`).then(response => {
-        setPois(response.data.data);
-    })
+    useEffect(() => {
+        axios.get(`https://localhost:7199/pois?idEnvironment=${urlParams.idEnvironment}`).then(response => {
+            console.log("get")
+            setPois(response.data.data);
+        })
+    },[urlParams]);
 
     if(isLoaded){
         return(
