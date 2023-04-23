@@ -25,9 +25,9 @@ const Map = (props) => {
                                 options={{pixelOffset: new window.google.maps.Size(0, -40)}}
                     >
                         <div>
-                            <p>Назва точки: {props.selectedMarker.nameObject}</p>
-                            <p>Розташування: {props.selectedMarker.description}</p>
-                            <p>Тип: {props.selectedMarker.typeName}</p>
+                            <p className={s.textInfo}>Назва точки: {props.selectedMarker.nameObject}</p>
+                            <p className={s.textInfo}>Розташування: {props.selectedMarker.description}</p>
+                            <p className={s.textInfo}>Тип: {props.selectedMarker.typeName}</p>
                         </div>
                     </InfoWindow>
                 )}

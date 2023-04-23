@@ -1,4 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 .mapContainer{
     width: 100vw;
     height: 94vh;
+}
+
+.textInfo{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
