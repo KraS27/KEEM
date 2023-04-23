@@ -12,9 +12,10 @@ const Navigation = () => {
                             <NavLink to={"/"} className={styles.navLink}>Домашня сторінка</NavLink>
                         </Nav.Link>
                         <NavDropdown title="Карта Викидів" id="nav-dropdown">
-                            <NavDropdown.Item><NavLink to={"map/1"} className={styles.navLink}>Повітря</NavLink></NavDropdown.Item>
-                            <NavDropdown.Item><NavLink to={"map/2"} className={styles.navLink}>Радіація</NavLink></NavDropdown.Item>
-                            <NavDropdown.Item><NavLink to={"map/3"} className={styles.navLink}>Вода</NavLink></NavDropdown.Item>
+                            <NavDropdown.Item><NavLink to={"map/1"} className={styles.navLink}>Атмосфера</NavLink></NavDropdown.Item>
+                            <NavDropdown.Item><NavLink to={"map/2"} className={styles.navLink}>Питнева Вода</NavLink></NavDropdown.Item>
+                            <NavDropdown.Item><NavLink to={"map/6"} className={styles.navLink}>Поверхневі Води</NavLink></NavDropdown.Item>
+                            <NavDropdown.Item><NavLink to={"map/8"} className={styles.navLink}>Стратосфера</NavLink></NavDropdown.Item>
                             <NavDropdown.Item> </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

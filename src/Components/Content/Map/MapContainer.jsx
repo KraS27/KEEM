@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {GoogleMap, InfoWindow, Marker, useJsApiLoader} from "@react-google-maps/api";
+import {useJsApiLoader} from "@react-google-maps/api";
 import axios from "axios";
 import Map from "./Map"
+import {useParams} from "react-router-dom";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const containerStyle = {
@@ -26,9 +27,11 @@ const defaultOptions = {
 
 const MapContainer = () => {
 
+    debugger;
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
     const [pois, setPois] = useState([]);
+    const urlParams = useParams();
     const onLoad = React.useCallback(function callback(map) {
         mapRef.current = map;
     }, []);
@@ -39,8 +42,7 @@ const MapContainer = () => {
         id: 'google-map-script',
         googleMapsApiKey: API_KEY
     });
-
-    axios.get("https://localhost:7199/pois").then(response => {
+    axios.get(`https://localhost:7199/pois?idEnvironment=${urlParams.idEnvironment}`).then(response => {
         setPois(response.data.data);
     })
 

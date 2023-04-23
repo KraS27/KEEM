@@ -12,7 +12,7 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Landing/>}/>
-                <Route path="/map/*" element={<MapContainer/>}/>
+                <Route path="/map/:idEnvironment?" element={<MapContainer/>}/>
             </Routes>
         </BrowserRouter>
     </div>
