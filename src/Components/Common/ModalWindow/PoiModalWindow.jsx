@@ -27,6 +27,7 @@ const PoiModalWindow = (props) => {
 
             <Modal show={props.show}
                    onHide={props.handleClose}
+                   scrollable
                    size="lg"
             >
                 <Modal.Header closeButton>
@@ -35,7 +36,7 @@ const PoiModalWindow = (props) => {
                 <Modal.Body>
                     <p className={s.moduleText}>Розташування: {props.marker.description}</p>
                     <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
-                    <Table>
+                    <Table >
                         <thead>
                             <tr>
                                 <th>Елемент</th>
