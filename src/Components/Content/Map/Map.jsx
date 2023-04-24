@@ -2,11 +2,13 @@ import React from 'react';
 import {GoogleMap, InfoWindow, Marker} from "@react-google-maps/api";
 import s from "./Map.module.css"
 import {Button} from "react-bootstrap";
-import ModalWindow from "../../Common/ModalWindow/ModalWindow";
+import PoiModalWindow from "../../Common/ModalWindow/PoiModalWindow";
+import PoiModalWindowContainer from "../../Common/ModalWindow/PoiModalWindowContainer";
 
 const Map = (props) => {
 
-    const markersMap = props.pois.map(m => <Marker position={{lat: m.latitude, lng: m.longitude}}
+    const markersMap = props.pois.map(m => <Marker key={m.id}
+                                                   position={{lat: m.latitude, lng: m.longitude}}
                                                    onClick = {() => { props.setSelectedMarker(m)}}/>)
 
     return (
@@ -29,7 +31,7 @@ const Map = (props) => {
                             <p className={s.textInfo}>Назва точки: {props.selectedMarker.nameObject}</p>
                             <p className={s.textInfo}>Розташування: {props.selectedMarker.description}</p>
                             <p className={s.textInfo}>Тип: {props.selectedMarker.typeName}</p>
-                            <ModalWindow />
+                            <PoiModalWindowContainer />
                         </div>
                     </InfoWindow>
                 )}

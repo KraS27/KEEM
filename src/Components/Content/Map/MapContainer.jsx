@@ -40,11 +40,11 @@ const MapContainer = () => {
     }, []);
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: API_KEY
+        googleMapsApiKey: API_KEY,
     });
+
     useEffect(() => {
         axios.get(`https://localhost:7199/pois?idEnvironment=${urlParams.idEnvironment}`).then(response => {
-            console.log("get")
             setPois(response.data.data);
         })
     },[urlParams]);
