@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import s from "./PoiModalWindow.module.css"
+import {Table} from "react-bootstrap";
 
 const PoiModalWindow = (props) => {
     return (
@@ -9,23 +11,29 @@ const PoiModalWindow = (props) => {
                 Детальніше
             </Button>
 
-            <Modal show={props.show} onHide={props.handleClose}>
+            <Modal show={props.show}
+                   onHide={props.handleClose}
+                   size="lg"
+            >
                 <Modal.Header closeButton>
-                    <Modal.Title>{props.marker.nameObject}</Modal.Title>
+                    <Modal.Title className={s.moduleTextHeader}>{props.marker.nameObject}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Розташування: {props.marker.description}</p>
-                    <p>Тип: {props.marker.typeName}</p>
-                    <table>
-                        <tr>
-                            <th>Хімічний склад</th>
-                            <th>Середня кількість</th>
-                            <th>Максимальна кількість</th>
-                            <th>Рік</th><th>Місяць</th>
-                            <th>День</th>
-                            <th>Одиниці вимірювання</th>
-                        </tr>
-                    </table>
+                    <p className={s.moduleText}>Розташування: {props.marker.description}</p>
+                    <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
+                    <Table bordered hover striped size="sm">
+                        <thead>
+                            <tr>
+                                <th>Елмент</th>
+                                <th>Ср. кількість</th>
+                                <th>Макс. кількість</th>
+                                <th>День</th>
+                                <th>Місяць</th>
+                                <th>Рік</th>
+                                <th>О.В.</th>
+                            </tr>
+                        </thead>
+                    </Table>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.handleClose}>
