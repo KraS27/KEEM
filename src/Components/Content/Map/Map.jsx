@@ -1,8 +1,6 @@
 import React from 'react';
 import {GoogleMap, InfoWindow, Marker} from "@react-google-maps/api";
 import s from "./Map.module.css"
-import {Button} from "react-bootstrap";
-import PoiModalWindow from "../../Common/ModalWindow/PoiModalWindow";
 import PoiModalWindowContainer from "../../Common/ModalWindow/PoiModalWindowContainer";
 
 const Map = (props) => {

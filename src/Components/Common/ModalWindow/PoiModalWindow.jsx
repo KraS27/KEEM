@@ -11,9 +11,22 @@ const PoiModalWindow = (props) => {
 
             <Modal show={props.show} onHide={props.handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>{props.marker.nameObject}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    <p>Розташування: {props.marker.description}</p>
+                    <p>Тип: {props.marker.typeName}</p>
+                    <table>
+                        <tr>
+                            <th>Хімічний склад</th>
+                            <th>Середня кількість</th>
+                            <th>Максимальна кількість</th>
+                            <th>Рік</th><th>Місяць</th>
+                            <th>День</th>
+                            <th>Одиниці вимірювання</th>
+                        </tr>
+                    </table>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.handleClose}>
                         Close
