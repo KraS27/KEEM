@@ -5,6 +5,20 @@ import s from "./PoiModalWindow.module.css"
 import {Table} from "react-bootstrap";
 
 const PoiModalWindow = (props) => {
+
+    debugger;
+    const mapEmissionToTableRow = props.emissions.map(e =>
+        <tr>
+            <td>{e.elementName}</td>
+            <td>{e.valueAvg}</td>
+            <td>{e.valueMax}</td>
+            <td>{e.day}</td>
+            <td>{e.month}</td>
+            <td>{e.year}</td>
+            <td>{e.measure}</td>
+        </tr>
+    )
+
     return (
         <div>
             <Button variant="primary" onClick={props.handleShow}>
@@ -21,18 +35,21 @@ const PoiModalWindow = (props) => {
                 <Modal.Body>
                     <p className={s.moduleText}>Розташування: {props.marker.description}</p>
                     <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
-                    <Table bordered hover striped size="sm">
+                    <Table>
                         <thead>
                             <tr>
-                                <th>Елмент</th>
-                                <th>Ср. кількість</th>
-                                <th>Макс. кількість</th>
+                                <th>Елемент</th>
+                                <th>Ср.кількість</th>
+                                <th>Макс.кількість</th>
                                 <th>День</th>
                                 <th>Місяць</th>
                                 <th>Рік</th>
                                 <th>О.В.</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            {mapEmissionToTableRow}
+                        </tbody>
                     </Table>
                 </Modal.Body>
                 <Modal.Footer>
