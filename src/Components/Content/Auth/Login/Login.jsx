@@ -1,16 +1,43 @@
 import React from 'react';
-import styles from "./Login.module.css"
-
+import s from "./Login.module.css"
+import {
+    MDBBtn,
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBInput,
+    MDBIcon,
+    MDBCheckbox
+}
+    from 'mdb-react-ui-kit';
 const Login = () => {
     return (
-        <div className={styles.sign && styles.left}>
-            <h1 className={styles.caption}>Sign in</h1>
+        <MDBContainer fluid>
+            <MDBRow className='d-flex justify-content-center align-items-center h-100'>
+                <MDBCol col='12'>
+                    <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '500px'}}>
+                        <MDBCardBody className='p-5 w-100 d-flex flex-column'>
 
-            <input className={styles.input} type="text" name="email" placeholder="E-mail"/>
-            <input className={styles.input} type="password" name="password" placeholder="Password"/>
+                            <h2 className="fw-bold mb-2 text-center">Авторизація</h2>
+                            <p className="text-white-50 mb-3">Будь ласка, введіть свій логін і пароль!</p>
 
-            <input className={styles.inputSubmit} type="submit" name="signup_submit" value="Sign me up"/>
-        </div>
+                            <MDBInput wrapperClass='mb-4 w-100' label='Електронна пошта' id='formControlLg' type='email' size="lg"/>
+                            <MDBInput wrapperClass='mb-4 w-100' label='Пароль' id='formControlLg' type='password' size="lg"/>
+
+                            <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label="Запам'ятати пароль"/>
+
+                            <MDBBtn size='lg'>
+                                Увійти
+                            </MDBBtn>
+
+                            <hr className="my-4" />
+                        </MDBCardBody>
+                    </MDBCard>
+                </MDBCol>
+            </MDBRow>
+        </MDBContainer>
     );
 };
 
