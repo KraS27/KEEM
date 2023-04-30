@@ -12,6 +12,7 @@ import {
     MDBCheckbox
 }
     from 'mdb-react-ui-kit';
+import {Button} from "react-bootstrap";
 const Login = () => {
     return (
         <MDBContainer fluid>
@@ -28,9 +29,9 @@ const Login = () => {
 
                             <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label="Запам'ятати пароль"/>
 
-                            <MDBBtn size='lg'>
+                            <Button size='lg'>
                                 Увійти
-                            </MDBBtn>
+                            </Button>
 
                             <hr className="my-4" />
                         </MDBCardBody>
