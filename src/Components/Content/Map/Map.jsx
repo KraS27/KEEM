@@ -12,7 +12,7 @@ const Map = (props) => {
                                                    onClick = {() => { props.setSelectedMarker(m)}}
                                                    icon={{
                                                        url: m.isPolluted ? redMarkerIcon : greenMarkerIcon,
-                                                       scaledSize: new window.google.maps.Size(55, 60)
+                                                       scaledSize: new window.google.maps.Size(50, 50),
                                                    }}
                                             />)
     return (
