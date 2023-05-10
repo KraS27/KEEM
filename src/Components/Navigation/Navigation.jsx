@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import styles from "./Navigation.module.css"
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <div>
             <Navbar expand="sm" bg="light" variant="light">
@@ -27,9 +27,14 @@ const Navigation = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <NavLink to={"/login"} className={styles.navLink}>
-                            <Button variant="primary">Увійти</Button>
-                        </NavLink>
+                        {
+                            props.isLoggedIn ?
+                                <Button variant="danger" onClick={() => {props.setIsLoggedIn(false)}}>Вийти</Button>
+                                :
+                                <NavLink to={"/login"} className={styles.navLink}>
+                                    <Button variant="primary">Увійти</Button>
+                                </NavLink>
+                        }
                     </Nav>
                 </Container>
             </Navbar>

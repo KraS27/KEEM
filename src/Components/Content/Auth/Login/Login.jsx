@@ -11,7 +11,9 @@ import {
 }
     from 'mdb-react-ui-kit';
 import {Button} from "react-bootstrap";
-const Login = () => {
+import styles from "../../../Navigation/Navigation.module.css";
+import {NavLink} from "react-router-dom";
+const Login = (props) => {
     return (
         <form action="">
             <MDBContainer fluid>
@@ -28,9 +30,11 @@ const Login = () => {
 
                                 <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label="Запам'ятати пароль"/>
 
-                                <Button size='lg' type="submit">
-                                    Увійти
-                                </Button>
+                                <NavLink to={"/"} className={styles.navLink}>
+                                    <Button onClick={() => {props.setIsLoggedIn(true)}} size='lg'>
+                                        Увійти
+                                    </Button>
+                                </NavLink>
 
                                 <hr className="my-4" />
                             </MDBCardBody>

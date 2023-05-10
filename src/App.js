@@ -5,20 +5,24 @@ import Landing from "./Components/Content/Landing/Landing";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MapContainer from "./Components/Content/Map/MapContainer";
 import Login from "./Components/Content/Auth/Login/Login";
+import {useState} from "react";
 
 function App() {
-  return (
-    <div>
-        <BrowserRouter>
-            <Navigation />
-            <Routes>
-                <Route path="/" element={<Landing/>}/>
-                <Route path="/map/:idEnvironment?" element={<MapContainer/>}/>
-                <Route path="/login" element={<Login/>}/>
-            </Routes>
-        </BrowserRouter>
-    </div>
-  );
+
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+return (
+<div>
+    <BrowserRouter>
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+        <Routes>
+            <Route path="/" element={<Landing/>}/>
+            <Route path="/map/:idEnvironment?" element={<MapContainer/>}/>
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
+        </Routes>
+    </BrowserRouter>
+</div>
+);
 }
 
 export default App;
