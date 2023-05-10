@@ -4,16 +4,20 @@ import s from "./Map.module.css"
 import PoiModalWindowContainer from "../../Common/ModalWindow/PoiModalWindowContainer";
 import greenMarkerIcon from "../../../static/img/green_marker.png";
 import redMarkerIcon from "../../../static/img/red_marker.png";
+import grayMarkerIcon from "../../../static/img/gray_marker.png";
+
 
 const Map = (props) => {
     debugger;
     const markersMap = props.pois.map(m => <Marker key={m.id}
                                                    position={{lat: m.latitude, lng: m.longitude}}
                                                    onClick = {() => { props.setSelectedMarker(m)}}
-                                                   icon={{
-                                                       url: m.isPolluted ? redMarkerIcon : greenMarkerIcon,
-                                                       scaledSize: new window.google.maps.Size(50, 50),
-                                                   }}
+                                                   icon={
+                                                        {
+                                                           url: m.isPolluted === 1 ? redMarkerIcon : m.isPolluted === 0 ? greenMarkerIcon : grayMarkerIcon,
+                                                           scaledSize: new window.google.maps.Size(45, 45),
+                                                        }
+                                                    }
                                             />)
     return (
         <div className={s.mapContainer}>
