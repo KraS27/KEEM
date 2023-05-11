@@ -2,7 +2,17 @@ import React from 'react';
 import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import styles from "./Navigation.module.css"
+import axios from "axios";
 const Navigation = (props) => {
+
+    const onLogOutClick = () => {
+        axios.get(`https://localhost:7199/logout`)
+            .then(response => {
+                if(response.data.data === true)
+                    props.setIsLoggedIn(false);
+            });
+    }
+
     return (
         <div>
             <Navbar expand="sm" bg="light" variant="light">
@@ -29,7 +39,7 @@ const Navigation = (props) => {
                     <Nav>
                         {
                             props.isLoggedIn ?
-                                <Button variant="danger" onClick={() => {props.setIsLoggedIn(false)}}>Вийти</Button>
+                                <Button variant="danger" onClick={onLogOutClick}>Вийти</Button>
                                 :
                                 <NavLink to={"/login"} className={styles.navLink}>
                                     <Button variant="primary">Увійти</Button>
