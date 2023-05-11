@@ -19,7 +19,7 @@ const Login = (props) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const onLoginClick = () => {
-        axios.post(`https://localhost:7199/login?userName=${userName}&password=${password}`)
+        axios.post(`https://localhost:7199/login?userName=${userName}&password=${password}`,{},{withCredentials : true})
             .then(response => {
                 props.setIsLoggedIn(response.data.data);
             });
