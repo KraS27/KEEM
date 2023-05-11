@@ -6,7 +6,7 @@ import axios from "axios";
 const Navigation = (props) => {
 
     const onLogOutClick = () => {
-        axios.get(`https://localhost:7199/logout`)
+        axios.delete(`https://localhost:7199/logout`)
             .then(response => {
                 if(response.data.data === true)
                     props.setIsLoggedIn(false);
