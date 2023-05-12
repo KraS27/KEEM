@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-
+import s from "./Login.module.css"
 import {
     MDBContainer,
     MDBRow,
@@ -11,17 +11,21 @@ import {
 }
     from 'mdb-react-ui-kit';
 import {Button} from "react-bootstrap";
-import styles from "../../../Navigation/Navigation.module.css";
-import {NavLink} from "react-router-dom";
 import axios from "axios";
 
 const Login = (props) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoginFailed, setIsLoginFailed] = useState(false)
     const onLoginClick = () => {
         axios.post(`https://localhost:7199/login?userName=${userName}&password=${password}`,{},{withCredentials : true})
             .then(response => {
                 props.setIsLoggedIn(response.data.data);
+
+                if(response.data.data === false)
+                    setIsLoginFailed(true)
+                else
+                    window.location.replace('/');
             });
     }
 
@@ -57,13 +61,16 @@ const Login = (props) => {
                                 <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4'
                                              label="Запам'ятати пароль"/>
 
-                                <NavLink to={"/"} className={styles.navLink}>
-                                    <Button onClick={onLoginClick} size='lg'>
-                                        Увійти
-                                    </Button>
-                                </NavLink>
+                                <Button onClick={onLoginClick} size='lg'>
+                                    Увійти
+                                </Button>
 
                                 <hr className="my-4"/>
+                                {isLoginFailed ?
+                                    <p className={s.loginFailed}>Невірний пароль чи ім'я користувача</p>
+                                    :
+                                    <p></p>
+                                }
                             </MDBCardBody>
                         </MDBCard>
                     </MDBCol>
