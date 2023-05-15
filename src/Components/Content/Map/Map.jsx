@@ -6,6 +6,7 @@ import greenMarkerIcon from "../../../static/img/green_marker.png";
 import redMarkerIcon from "../../../static/img/red_marker.png";
 import grayMarkerIcon from "../../../static/img/gray_marker.png";
 import {Button} from "react-bootstrap";
+import {MODES} from "./MapContainer";
 
 
 const Map = (props) => {
@@ -44,7 +45,13 @@ const Map = (props) => {
                         </div>
                     </InfoWindow>
                 )}
-                <Button className={s.changeModeButton} variant="light">Move</Button>
+                <Button
+                    className={s.changeModeButton}
+                    variant="light"
+                    onClick={props.toogleMode}
+                >
+                    {props.currentMode === MODES.MOVE ? <p>Move</p> : <p>Set Marker</p>}
+                </Button>
             </GoogleMap>
         </div>
     )

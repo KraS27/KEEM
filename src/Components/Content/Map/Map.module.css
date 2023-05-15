@@ -11,10 +11,11 @@
 }
 
 .changeModeButton{
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Roboto', sans-serif;
-    width: 75px;
-    position: fixed;
+    width: 125px;
+    height: 40px;
+    position: absolute;
     bottom: 25px;
     right: 60px;
 }

@@ -30,6 +30,7 @@ const MapContainer = () => {
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
     const [pois, setPois] = useState([]);
+    const [mode, setMode] = useState(MODES.MOVE);
     const urlParams = useParams();
     const onLoad = React.useCallback(function callback(map) {
         mapRef.current = map;
@@ -48,8 +49,23 @@ const MapContainer = () => {
     },[urlParams]);
 
     const onMapClick = (location) => {
-        console.log(location.latLng.lng());
-        console.log(location.latLng.lat());
+        if(mode === MODES.SET_MARKER){
+            console.log(location.latLng.lng());
+            console.log(location.latLng.lat());
+        }
+    }
+
+    const toogleMode = () => {
+        switch (mode){
+            case MODES.MOVE:
+                setMode(MODES.SET_MARKER);
+            break;
+            case MODES.SET_MARKER:
+                setMode(MODES.MOVE);
+                break;
+            default:
+                setMode(MODES.MOVE);
+        }
     }
 
     if(isLoaded){
@@ -62,6 +78,8 @@ const MapContainer = () => {
                  defaultOptions={defaultOptions}
                  selectedMarker={selectedMarker}
                  setSelectedMarker={setSelectedMarker}
+                 toogleMode={toogleMode}
+                 currentMode = {mode}
                  pois={pois}
             />
         )
@@ -72,3 +90,7 @@ const MapContainer = () => {
 };
 
 export default MapContainer;
+export const MODES = {
+    MOVE: 0,
+    SET_MARKER: 1
+};
