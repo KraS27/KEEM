@@ -10,6 +10,7 @@ import {MODES} from "./MapContainer";
 
 
 const Map = (props) => {
+    debugger;
     const markersMap = props.pois.map(m => <Marker key={m.id}
                                                    position={{lat: m.latitude, lng: m.longitude}}
                                                    onClick = {() => { props.setSelectedMarker(m)}}
@@ -20,6 +21,16 @@ const Map = (props) => {
                                                         }
                                                    }
                                             />)
+    const customMarkersMap = props.customPois.map(m => <Marker
+                                                         position={{lat: m.latitude, lng: m.longitude}}
+                                                         onClick = {() => { props.setSelectedMarker(m)}}
+                                                         icon={
+                                                             {
+                                                                 url: m.isPolluted === 1 ? redMarkerIcon : m.isPolluted === 0 ? greenMarkerIcon : grayMarkerIcon,
+                                                                 scaledSize: new window.google.maps.Size(45, 45),
+                                                             }
+                                                         }
+    />)
     return (
         <div className={s.mapContainer}>
             <GoogleMap
@@ -32,6 +43,7 @@ const Map = (props) => {
                 options={props.defaultOptions}
             >
                 {markersMap}
+                {customMarkersMap}
                 {props.selectedMarker && (
                     <InfoWindow position={{lat: props.selectedMarker.latitude, lng: props.selectedMarker.longitude}}
                                 onCloseClick={() => { props.setSelectedMarker(null) }}

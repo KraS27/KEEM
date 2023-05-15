@@ -13,7 +13,6 @@ function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 useEffect(() => {
-    console.log("sfsa")
     axios.get(`https://localhost:7199/auth`, {withCredentials : true})
         .then(response => {
                 setIsLoggedIn(response.data.data);

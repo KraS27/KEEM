@@ -26,10 +26,11 @@ const defaultOptions = {
 }
 
 const MapContainer = () => {
-
+    debugger;
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
     const [pois, setPois] = useState([]);
+    const [customPois, setCustomPois] = useState([]);
     const [mode, setMode] = useState(MODES.MOVE);
     const urlParams = useParams();
     const onLoad = React.useCallback(function callback(map) {
@@ -50,8 +51,17 @@ const MapContainer = () => {
 
     const onMapClick = (location) => {
         if(mode === MODES.SET_MARKER){
-            console.log(location.latLng.lng());
-            console.log(location.latLng.lat());
+            setCustomPois([
+                ...customPois,
+                {
+                    latitude: location.latLng.lat(),
+                    longitude:location.latLng.lng(),
+                    description: "",
+                    nameObject: "",
+                    typeName: "Точка збору інформації",
+                    isPolluted: -1
+                }
+            ])
         }
     }
 
@@ -81,6 +91,7 @@ const MapContainer = () => {
                  toogleMode={toogleMode}
                  currentMode = {mode}
                  pois={pois}
+                 customPois={customPois}
             />
         )
     }
