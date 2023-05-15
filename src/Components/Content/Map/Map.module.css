@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 .mapContainer{
-    width: 100vw;
+    width: 99.9vw;
     height: 94vh;
 }
 
@@ -8,4 +8,13 @@
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+}
+
+.changeModeButton{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    width: 75px;
+    position: fixed;
+    bottom: 25px;
+    right: 60px;
 }

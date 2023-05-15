@@ -47,10 +47,16 @@ const MapContainer = () => {
         })
     },[urlParams]);
 
+    const onMapClick = (location) => {
+        console.log(location.latLng.lng());
+        console.log(location.latLng.lat());
+    }
+
     if(isLoaded){
         return(
             <Map onLoad={onLoad}
                  onUnmount={onUnmount}
+                 onMapClick={onMapClick}
                  containerStyle={containerStyle}
                  defaultCenter={defaultCenter}
                  defaultOptions={defaultOptions}
