@@ -59,7 +59,8 @@ const MapContainer = () => {
                     description: "",
                     nameObject: "",
                     typeName: "Точка збору інформації",
-                    isPolluted: -1
+                    isPolluted: -1,
+                    isCustomMarker: true
                 }
             ])
         }

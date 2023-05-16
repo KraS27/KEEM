@@ -1,12 +1,13 @@
 import React from 'react';
 import {GoogleMap, InfoWindow, Marker} from "@react-google-maps/api";
 import s from "./Map.module.css"
-import PoiModalWindowContainer from "../../Common/ModalWindow/PoiModalWindowContainer";
+import PoiModalWindowContainer from "../../Common/PoiModalWindow/PoiModalWindowContainer";
 import greenMarkerIcon from "../../../static/img/green_marker.png";
 import redMarkerIcon from "../../../static/img/red_marker.png";
 import grayMarkerIcon from "../../../static/img/gray_marker.png";
 import {Button} from "react-bootstrap";
 import {MODES} from "./MapContainer";
+import CustomPoiModalWindowContainer from "../../Common/CustomPoiModalWindow/CustomPoiModalWindowContainer";
 
 
 const Map = (props) => {
@@ -26,7 +27,7 @@ const Map = (props) => {
                                                          onClick = {() => { props.setSelectedMarker(m)}}
                                                          icon={
                                                              {
-                                                                 url: m.isPolluted === 1 ? redMarkerIcon : m.isPolluted === 0 ? greenMarkerIcon : grayMarkerIcon,
+                                                                 url: grayMarkerIcon,
                                                                  scaledSize: new window.google.maps.Size(45, 45),
                                                              }
                                                          }
@@ -53,7 +54,13 @@ const Map = (props) => {
                             <p className={s.textInfo}>Назва точки: {props.selectedMarker.nameObject}</p>
                             <p className={s.textInfo}>Розташування: {props.selectedMarker.description}</p>
                             <p className={s.textInfo}>Тип: {props.selectedMarker.typeName}</p>
-                            <PoiModalWindowContainer marker={props.selectedMarker}/>
+                            {
+                                props.selectedMarker.isCustomMarker
+                                ?
+                                <CustomPoiModalWindowContainer marker={props.selectedMarker}/>
+                                :
+                                <PoiModalWindowContainer marker={props.selectedMarker}/>
+                            }
                         </div>
                     </InfoWindow>
                 )}
