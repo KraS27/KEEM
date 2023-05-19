@@ -12,7 +12,6 @@ const PoiModalWindowContainer = (props) => {
     useEffect(() => {
         axios.get(`https://localhost:7199/emissions/poi?idPoi=${props.marker.id}`).then(response => {
             setEmissions(response.data.data);
-            console.log("get")
         })
     }, [props.marker.id])
 
