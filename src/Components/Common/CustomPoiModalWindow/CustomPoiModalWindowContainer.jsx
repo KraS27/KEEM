@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import CustomPoiModalWindow from "./CustomPoiModalWindow";
 import axios from "axios";
-import {useParams} from "react-router-dom";
 
 const CustomPoiModalWindowContainer = (props) => {
 
@@ -26,8 +25,8 @@ const CustomPoiModalWindowContainer = (props) => {
              },
             {withCredentials : true}
         ).then(response => {
-            debugger;
             if(response.data.data === true)
+                props.marker.isCustomMarker = false;
                 setShow(false);
         })
 
@@ -35,12 +34,12 @@ const CustomPoiModalWindowContainer = (props) => {
     }
     const handleShow = () => setShow(true);
     const handleSetNameObject = (newNameObject) => {
-        setNameObject(newNameObject);
         props.marker.nameObject = nameObject;
+        setNameObject(newNameObject);
     }
     const handleDescription = (newDescription) => {
-        setDescription(newDescription);
         props.marker.description = description;
+        setDescription(newDescription);
     }
     return (
         <CustomPoiModalWindow
