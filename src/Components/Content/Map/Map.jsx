@@ -11,6 +11,7 @@ import CustomPoiModalWindowContainer from "../../Common/CustomPoiModalWindow/Cus
 
 
 const Map = (props) => {
+    debugger;
     const markersMap = props.pois.map(m => <Marker key={m.id}
                                                    position={{lat: m.latitude, lng: m.longitude}}
                                                    onClick = {() => { props.setSelectedMarker(m)}}

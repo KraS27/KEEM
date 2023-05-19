@@ -6,19 +6,21 @@ import {Table} from "react-bootstrap";
 
 const PoiModalWindow = (props) => {
 
-    debugger;
-    const mapEmissionToTableRow = props.emissions.map(e =>
-        <tr>
-            <td>{e.elementName}</td>
-            <td>{e.valueAvg}</td>
-            <td>{e.valueMax}</td>
-            <td>{e.day}</td>
-            <td>{e.month}</td>
-            <td>{e.year}</td>
-            <td>{e.measure}</td>
-        </tr>
-    )
+    let mapEmissionToTableRow;
 
+    if(props.emissions != null){
+        mapEmissionToTableRow = props.emissions.map(e =>
+            <tr>
+                <td>{e.elementName}</td>
+                <td>{e.valueAvg}</td>
+                <td>{e.valueMax}</td>
+                <td>{e.day}</td>
+                <td>{e.month}</td>
+                <td>{e.year}</td>
+                <td>{e.measure}</td>
+            </tr>
+        )
+    }
     return (
         <div>
             <Button variant="primary" onClick={props.handleShow}>
