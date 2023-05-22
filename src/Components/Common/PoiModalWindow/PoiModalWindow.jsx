@@ -1,26 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import s from "./PoiModalWindow.module.css"
-import {Table} from "react-bootstrap";
+import DisplayEmissionModalBody from "./DisplayEmissionModalBody";
+
+const MODAL_MODES = {
+    DISPLAY_EMISSIONS: 0,
+    ADD_EMISSION: 1
+};
 
 const PoiModalWindow = (props) => {
 
-    let mapEmissionToTableRow;
+    const [mode, setMode] = useState(MODAL_MODES.DISPLAY_EMISSIONS);
 
-    if(props.emissions != null){
-        mapEmissionToTableRow = props.emissions.map(e =>
-            <tr>
-                <td>{e.elementName}</td>
-                <td>{e.valueAvg}</td>
-                <td>{e.valueMax}</td>
-                <td>{e.day}</td>
-                <td>{e.month}</td>
-                <td>{e.year}</td>
-                <td>{e.measure}</td>
-            </tr>
-        )
-    }
     return (
         <div>
             <Button variant="primary" onClick={props.handleShow}>
@@ -36,31 +28,25 @@ const PoiModalWindow = (props) => {
                     <Modal.Title className={s.moduleTextHeader}>{props.marker.nameObject}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p className={s.moduleText}>Розташування: {props.marker.description}</p>
-                    <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
-                    <Table >
-                        <thead>
-                            <tr>
-                                <th>Елемент</th>
-                                <th>Ср.кількість</th>
-                                <th>Макс.кількість</th>
-                                <th>День</th>
-                                <th>Місяць</th>
-                                <th>Рік</th>
-                                <th>О.В.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {mapEmissionToTableRow}
-                        </tbody>
-                    </Table>
+                    {mode === MODAL_MODES.DISPLAY_EMISSIONS
+                        ?
+                        <DisplayEmissionModalBody
+                            emissions={props.emissions}
+                            marker={props.marker}
+                        />
+                        :
+                        <></>
+                    }
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button variant="warning" className={s.addEmissionButton}>
+                        Додати забруднення
+                    </Button>
                     <Button variant="secondary" onClick={props.handleClose}>
-                        Close
+                        Закрити
                     </Button>
                     <Button variant="primary" onClick={props.handleClose}>
-                        Save Changes
+                        Зберегти зміни
                     </Button>
                 </Modal.Footer>
             </Modal>

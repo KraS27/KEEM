@@ -24,9 +24,12 @@ const defaultOptions = {
     keyboardShortcuts: false,
     disableDoubleClickZoom: true,
 }
-
+export const MODES = {
+    MOVE: 0,
+    SET_MARKER: 1
+};
 const MapContainer = () => {
-    debugger;
+
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
     const [pois, setPois] = useState([]);
@@ -102,7 +105,3 @@ const MapContainer = () => {
 };
 
 export default MapContainer;
-export const MODES = {
-    MOVE: 0,
-    SET_MARKER: 1
-};

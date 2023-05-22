@@ -35,7 +35,7 @@ const Navigation = (props) => {
                                 <NavLink to={"map/8"} className={styles.navLink}>Стратосфера</NavLink>
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <NavLink to={"map/0"} className={styles.navLink}>Невизначені</NavLink>
+                                <NavLink to={"map/0"} className={styles.navLink}>Без викидів</NavLink>
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

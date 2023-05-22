@@ -15,3 +15,8 @@
     font-weight: 500;
     font-weight: bold;
 }
+
+.addEmissionButton{
+    position: absolute;
+    left: 15px;
+}
