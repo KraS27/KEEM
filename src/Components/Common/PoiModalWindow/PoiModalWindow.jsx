@@ -13,6 +13,18 @@ const PoiModalWindow = (props) => {
 
     const [mode, setMode] = useState(MODAL_MODES.DISPLAY_EMISSIONS);
 
+    const toogleMode = () => {
+        switch (mode){
+            case MODAL_MODES.DISPLAY_EMISSIONS:
+                setMode(MODAL_MODES.ADD_EMISSION);
+                break;
+            case MODAL_MODES.ADD_EMISSION:
+                setMode(MODAL_MODES.DISPLAY_EMISSIONS);
+                break;
+            default: setMode(MODAL_MODES.DISPLAY_EMISSIONS);
+        }
+    }
+
     return (
         <div>
             <Button variant="primary" onClick={props.handleShow}>
@@ -39,7 +51,7 @@ const PoiModalWindow = (props) => {
                     }
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="warning" className={s.addEmissionButton}>
+                    <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
                         Додати забруднення
                     </Button>
                     <Button variant="secondary" onClick={props.handleClose}>
