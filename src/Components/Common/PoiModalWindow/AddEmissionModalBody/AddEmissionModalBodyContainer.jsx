@@ -3,7 +3,7 @@ import AddEmissionModalBody from "./AddEmissionModalBody";
 import {useParams} from "react-router-dom";
 
 const AddEmissionModalBodyContainer = (props) => {
-
+    debugger;
     const urlParams = useParams();
     const [day, setDay] = useState();
     const [month, setMonth] = useState();
@@ -12,6 +12,7 @@ const AddEmissionModalBodyContainer = (props) => {
     const [valueMax, setValueMax] = useState();
     const [measure, setMeasure] = useState("");
     const [elementName, setElementName] = useState("");
+    const [environment, setEnvironment] = useState(urlParams.idEnvironment)
 
     const addEmission = () => {
         debugger;
@@ -27,7 +28,7 @@ const AddEmissionModalBodyContainer = (props) => {
                     month: month,
                     measure: measure,
                     idPoi: props.marker.id,
-                    idEnvironment: urlParams.idEnvironment,
+                    idEnvironment: environment,
                     elementName: elementName
                 }
             ]
@@ -53,6 +54,9 @@ const AddEmissionModalBodyContainer = (props) => {
             setMeasure={setMeasure}
             elementName={elementName}
             setElementName={setElementName}
+            environment={environment}
+            setEnvironment={setEnvironment}
+            newEmissions={props.newEmissions}
         />
     );
 };

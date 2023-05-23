@@ -6,6 +6,7 @@ import s from "../PoiModalWindow.module.css";
 import Modal from "react-bootstrap/Modal";
 
 const AddEmissionModalBody = (props) => {
+    debugger;
     return (
         <div>
             <Modal
@@ -15,19 +16,22 @@ const AddEmissionModalBody = (props) => {
             >
                 <ModalBody>
                     <p>День: </p>
-                    <MDBInput type="number" value={props.day} onChange={e => props.setDay(e.target.value)}/>
+                    <MDBInput type="text" value={props.day} onChange={e => props.setDay(e.target.value)}/>
                     <p>Місяць: </p>
-                    <MDBInput type="number" value={props.month} onChange={e => props.setMonth(e.target.value)}/>
+                    <MDBInput type="text" value={props.month} onChange={e => props.setMonth(e.target.value)}/>
                     <p>Рік: </p>
-                    <MDBInput type="number" value={props.year} onChange={e => props.setYear(e.target.value)}/>
+                    <MDBInput type="text" value={props.year} onChange={e => props.setYear(e.target.value)}/>
                     <p>Середнє значення: </p>
-                    <MDBInput type="number" value={props.valueAvg} onChange={e => props.setValueAvg(e.target.value)}/>
+                    <MDBInput type="text" value={props.valueAvg} onChange={e => props.setValueAvg(e.target.value)}/>
                     <p>Максимальне значення: </p>
-                    <MDBInput type="number" value={props.valueMax} onChange={e => props.setValueMax(e.target.value)}/>
+                    <MDBInput type="text" value={props.valueMax} onChange={e => props.setValueMax(e.target.value)}/>
                     <p>Міра виміру: </p>
                     <MDBInput type="text" value={props.measure} onChange={e => props.setMeasure(e.target.value)}/>
                     <p>Ім'я елементу: </p>
                     <MDBInput type="text" value={props.elementName} onChange={e => props.setElementName(e.target.value)}/>
+                    <p>Зовнішнє середовище</p>
+                    <MDBInput type="text" value={props.environment} onChange={e => props.setEnvironment(e.target.value)}/>
+
                 </ModalBody>
                 <ModalFooter>
                     <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>

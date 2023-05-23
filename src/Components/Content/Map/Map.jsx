@@ -63,13 +63,20 @@ const Map = (props) => {
                         </div>
                     </InfoWindow>
                 )}
-                <Button
-                    className={s.changeModeButton}
-                    variant="light"
-                    onClick={props.toogleMode}
-                >
-                    {props.currentMode === MODES.MOVE ? <p>Move</p> : <p>Set Marker</p>}
-                </Button>
+                {
+                    props.isLoggedIn
+                    ?
+                    <Button
+                        className={s.changeModeButton}
+                        variant="light"
+                        onClick={props.toogleMode}
+                    >
+                        {props.currentMode === MODES.MOVE ? <p>Move</p> : <p>Set Marker</p>}
+                    </Button>
+                    :
+                    <></>
+                }
+
             </GoogleMap>
         </div>
     )

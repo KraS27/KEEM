@@ -25,7 +25,7 @@ return (
         <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
         <Routes>
             <Route path="/" element={<Landing/>}/>
-            <Route path="/map/:idEnvironment?" element={<MapContainer/>}/>
+            <Route path="/map/:idEnvironment?" element={<MapContainer isLoggedIn={isLoggedIn}/>}/>
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
         </Routes>
     </BrowserRouter>

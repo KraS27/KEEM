@@ -11,24 +11,28 @@ const CustomPoiModalWindowContainer = (props) => {
     const [latitude, setLatitude] = useState(props.marker.latitude);
     const [longitude, setLongitude] = useState(props.marker.longitude);
     const handleClose = () => {
-        debugger;
+        setShow(false);
+    }
+    const saveChange = () => {
         axios.post(
-        "https://localhost:7199/pois",
-        {
-                 idOfUser: 2,
-                 ownerType: 4,
-                 latitude: props.marker.latitude,
-                 longitude: props.marker.longitude,
-                 description: description,
-                 nameObject: nameObject,
-                 typeName: "test",
-                 isPolluted: -1
-             },
+            "https://localhost:7199/pois",
+            {
+                idOfUser: 2,
+                ownerType: 4,
+                latitude: props.marker.latitude,
+                longitude: props.marker.longitude,
+                description: description,
+                nameObject: nameObject,
+                typeName: "test",
+                isPolluted: -1
+            },
             {withCredentials : true}
         ).then(response => {
             if(response.data.data === true)
                 props.marker.isCustomMarker = false;
-                setShow(false);
+
+            setShow(false);
+            window.location.reload()
         })
     }
     const handleShow = () => setShow(true);
@@ -52,6 +56,7 @@ const CustomPoiModalWindowContainer = (props) => {
             setDescription={handleDescription}
             latitude={latitude}
             longitude={longitude}
+            saveChange={saveChange}
         />
     );
 };

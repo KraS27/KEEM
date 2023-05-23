@@ -28,7 +28,7 @@ export const MODES = {
     MOVE: 0,
     SET_MARKER: 1
 };
-const MapContainer = () => {
+const MapContainer = (props) => {
 
     const mapRef = React.useRef(null);
     const [selectedMarker, setSelectedMarker] = useState(undefined);
@@ -96,6 +96,7 @@ const MapContainer = () => {
                  currentMode = {mode}
                  pois={pois}
                  customPois={customPois}
+                 isLoggedIn={props.isLoggedIn}
             />
         )
     }
