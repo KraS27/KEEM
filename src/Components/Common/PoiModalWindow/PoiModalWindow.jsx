@@ -1,31 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import s from "./PoiModalWindow.module.css"
 import DisplayEmissionModalBody from "./DisplayEmissionModalBody/DisplayEmissionModalBody";
 import AddEmissionModalBodyContainer from "./AddEmissionModalBody/AddEmissionModalBodyContainer";
-
-const MODAL_MODES = {
-    DISPLAY_EMISSIONS: 0,
-    ADD_EMISSION: 1
-};
+import {MODAL_MODES} from "./PoiModalWindowContainer";
 
 const PoiModalWindow = (props) => {
-
-    const [mode, setMode] = useState(MODAL_MODES.DISPLAY_EMISSIONS);
-
-    const toogleMode = () => {
-        switch (mode){
-            case MODAL_MODES.DISPLAY_EMISSIONS:
-                setMode(MODAL_MODES.ADD_EMISSION);
-                break;
-            case MODAL_MODES.ADD_EMISSION:
-                setMode(MODAL_MODES.DISPLAY_EMISSIONS);
-                break;
-            default: setMode(MODAL_MODES.DISPLAY_EMISSIONS);
-        }
-    }
-
     return (
         <div>
             <Button variant="primary" onClick={props.handleShow}>
@@ -41,7 +22,7 @@ const PoiModalWindow = (props) => {
                     <Modal.Title className={s.moduleTextHeader}>{props.marker.nameObject}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {mode === MODAL_MODES.DISPLAY_EMISSIONS
+                    {props.mode === MODAL_MODES.DISPLAY_EMISSIONS
                         ?
                         <DisplayEmissionModalBody
                             emissions={props.emissions}
@@ -52,13 +33,13 @@ const PoiModalWindow = (props) => {
                     }
                 </Modal.Body>
                 <Modal.Footer>
-                    {mode === MODAL_MODES.DISPLAY_EMISSIONS
+                    {props.mode === MODAL_MODES.DISPLAY_EMISSIONS
                         ?
-                        <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
+                        <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
                             Додати забруднення
                         </Button>
                         :
-                        <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
+                        <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
                             Назад
                         </Button>
                     }
