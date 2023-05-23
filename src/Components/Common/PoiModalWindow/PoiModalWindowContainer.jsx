@@ -13,7 +13,10 @@ const PoiModalWindowContainer = (props) => {
     const [emissions, setEmissions] = useState([]);
     const [newEmissions, setNewEmissions] = useState([]);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () =>{
+        toogleMode();
+        setShow(false);
+    }
     const handleShow = () => setShow(true);
     const toogleMode = () => {
         switch (mode){

@@ -30,6 +30,8 @@ const AddEmissionModalBodyContainer = (props) => {
 
     return (
         <AddEmissionModalBody
+            toogleMode={props.toogleMode}
+            show={props.show}
             addEmission={addEmission}
             handleClose={props.handleClose}
             day={day}
