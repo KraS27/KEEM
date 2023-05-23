@@ -29,8 +29,6 @@ const CustomPoiModalWindowContainer = (props) => {
                 props.marker.isCustomMarker = false;
                 setShow(false);
         })
-
-
     }
     const handleShow = () => setShow(true);
     const handleSetNameObject = (newNameObject) => {
