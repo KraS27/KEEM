@@ -32,15 +32,16 @@ const PoiModalWindowContainer = (props) => {
 
     const saveChange = () => {
         debugger;
-        if(newEmissions != null){
+        if(newEmissions.length != 0){
             axios.post(
                 "https://localhost:7199/emissions/range",
-                {
-                    emissionsDTO: newEmissions
-                },
+                newEmissions,
+                {withCredentials : true}
             ).then(response => {
                 if(response.data.data === true)
                     setShow(false);
+            }).catch(function (error){
+                console.log(error);
             })
         }
         else {
