@@ -1,32 +1,39 @@
 import React, {useState} from 'react';
 import {MDBInput} from "mdb-react-ui-kit";
+import {ModalBody, ModalFooter} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import s from "../PoiModalWindow.module.css";
 
-const AddEmissionModalBody = () => {
-
-const [day, setDay] = useState("");
-const [month, setMonth] = useState("");
-const [year, setYear] = useState("");
-const [valueAvg, setValueAvg] = useState("");
-const [valueMax, setValueMax] = useState("");
-const [measure, setMeasure] = useState("");
-const [elementName, setElementName] = useState("");
-
+const AddEmissionModalBody = (props) => {
     return (
         <div>
-            <p>День: </p>
-            <MDBInput type="text" value={day} onChange={e => setDay(e.target.value)}/>
-            <p>Місяць: </p>
-            <MDBInput type="text" value={month} onChange={e => setMonth(e.target.value)}/>
-            <p>Рік: </p>
-            <MDBInput type="text" value={year} onChange={e => setYear(e.target.value)}/>
-            <p>Середнє значення: </p>
-            <MDBInput type="text" value={valueAvg} onChange={e => setValueAvg(e.target.value)}/>
-            <p>Максимальне значення: </p>
-            <MDBInput type="text" value={valueMax} onChange={e => setValueMax(e.target.value)}/>
-            <p>Міра виміру: </p>
-            <MDBInput type="text" value={measure} onChange={e => setMeasure(e.target.value)}/>
-            <p>Ім'я елементу: </p>
-            <MDBInput type="text" value={elementName} onChange={e => setElementName(e.target.value)}/>
+            <ModalBody>
+                <p>День: </p>
+                <MDBInput type="text" value={props.day} onChange={e => props.setDay(e.target.value)}/>
+                <p>Місяць: </p>
+                <MDBInput type="text" value={props.month} onChange={e => props.setMonth(e.target.value)}/>
+                <p>Рік: </p>
+                <MDBInput type="text" value={props.year} onChange={e => props.setYear(e.target.value)}/>
+                <p>Середнє значення: </p>
+                <MDBInput type="text" value={props.valueAvg} onChange={e => props.setValueAvg(e.target.value)}/>
+                <p>Максимальне значення: </p>
+                <MDBInput type="text" value={props.valueMax} onChange={e => props.setValueMax(e.target.value)}/>
+                <p>Міра виміру: </p>
+                <MDBInput type="text" value={props.measure} onChange={e => props.setMeasure(e.target.value)}/>
+                <p>Ім'я елементу: </p>
+                <MDBInput type="text" value={props.elementName} onChange={e => props.setElementName(e.target.value)}/>
+            </ModalBody>
+            <ModalFooter>
+                <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
+                        Назад
+                </Button>
+                <Button variant="secondary" onClick={props.handleClose}>
+                        Закрити
+                </Button>
+                <Button variant="primary"  onClick={props.addEmission}>
+                        Додати
+                </Button>
+            </ModalFooter>
         </div>
     );
 };

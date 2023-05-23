@@ -26,8 +26,6 @@ const PoiModalWindowContainer = (props) => {
             default: setMode(MODAL_MODES.DISPLAY_EMISSIONS);
         }
     }
-
-
     useEffect(() => {
         axios.get(`https://localhost:7199/emissions/poi?idPoi=${props.marker.id}`).then(response => {
             setEmissions(response.data.data);

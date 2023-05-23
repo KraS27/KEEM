@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "../PoiModalWindow.module.css";
-import {Table} from "react-bootstrap";
+import {ModalBody, ModalFooter, Table} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 const DisplayEmissionModalBody = (props) => {
 
@@ -34,28 +35,40 @@ const DisplayEmissionModalBody = (props) => {
         )
     }
 
-
     return (
         <div>
-            <p className={s.moduleText}>Розташування: {props.marker.description}</p>
-            <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
-            <Table >
-                <thead>
-                <tr>
-                    <th>Елемент</th>
-                    <th>Ср.кількість</th>
-                    <th>Макс.кількість</th>
-                    <th>День</th>
-                    <th>Місяць</th>
-                    <th>Рік</th>
-                    <th>О.В.</th>
-                </tr>
-                </thead>
-                <tbody>
-                {mapEmissionToTableRow}
-                {mapNewEmissionToTableRow}
-                </tbody>
-            </Table>
+            <ModalBody>
+                <p className={s.moduleText}>Розташування: {props.marker.description}</p>
+                <p className={s.moduleText}>Тип: {props.marker.typeName}</p>
+                <Table >
+                    <thead>
+                    <tr>
+                        <th>Елемент</th>
+                        <th>Ср.кількість</th>
+                        <th>Макс.кількість</th>
+                        <th>День</th>
+                        <th>Місяць</th>
+                        <th>Рік</th>
+                        <th>О.В.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {mapEmissionToTableRow}
+                    {mapNewEmissionToTableRow}
+                    </tbody>
+                </Table>
+            </ModalBody>
+           <ModalFooter>
+               <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
+                   Додати забруднення
+               </Button>
+               <Button variant="secondary" onClick={props.handleClose}>
+                   Закрити
+               </Button>
+               <Button variant="primary" onClick={props.handleClose}>
+                   Зберегти зміни
+               </Button>
+           </ModalFooter>
         </div>
     );
 };

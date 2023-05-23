@@ -21,39 +21,23 @@ const PoiModalWindow = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title className={s.moduleTextHeader}>{props.marker.nameObject}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
                     {props.mode === MODAL_MODES.DISPLAY_EMISSIONS
                         ?
                         <DisplayEmissionModalBody
                             emissions={props.emissions}
                             newEmissions={props.newEmissions}
                             marker={props.marker}
+                            toogleMode={props.toogleMode}
+                            handleClose={props.handleClose}
                         />
                         :
                         <AddEmissionModalBodyContainer
-                            newEmissions={props.newEmissions}
+                            toogleMode={props.toogleMode}
                             setNewEmissions={props.setNewEmissions}
+                            marker={props.marker}
+                            handleClose={props.handleClose}
                         />
                     }
-                </Modal.Body>
-                <Modal.Footer>
-                    {props.mode === MODAL_MODES.DISPLAY_EMISSIONS
-                        ?
-                        <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
-                            Додати забруднення
-                        </Button>
-                        :
-                        <Button variant="warning" className={s.addEmissionButton} onClick={props.toogleMode}>
-                            Назад
-                        </Button>
-                    }
-                    <Button variant="secondary" onClick={props.handleClose}>
-                        Закрити
-                    </Button>
-                    <Button variant="primary" onClick={props.handleClose}>
-                        Зберегти зміни
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </div>
     );
