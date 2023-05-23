@@ -23,6 +23,7 @@ const PoiModalWindow = (props) => {
                 :
                 <AddEmissionModalBodyContainer
                     toogleMode={props.toogleMode}
+                    newEmissions={props.newEmissions}
                     setNewEmissions={props.setNewEmissions}
                     marker={props.marker}
                     handleClose={props.handleClose}

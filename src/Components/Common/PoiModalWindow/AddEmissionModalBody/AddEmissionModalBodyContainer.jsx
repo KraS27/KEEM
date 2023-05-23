@@ -14,20 +14,25 @@ const AddEmissionModalBodyContainer = (props) => {
     const [elementName, setElementName] = useState("");
 
     const addEmission = () => {
+        debugger;
         props.toogleMode();
-        props.setNewEmissions({
-            day: day,
-            valueAvg: valueAvg,
-            valueMax: valueMax,
-            year: year,
-            month: month,
-            measure: measure,
-            idPoi: props.marker.id,
-            idEnvironment: urlParams.idEnvironment,
-            elementName: elementName
-        });
+        props.setNewEmissions(
+            [
+                ...props.newEmissions,
+                {
+                    day: day,
+                    valueAvg: valueAvg,
+                    valueMax: valueMax,
+                    year: year,
+                    month: month,
+                    measure: measure,
+                    idPoi: props.marker.id,
+                    idEnvironment: urlParams.idEnvironment,
+                    elementName: elementName
+                }
+            ]
+        );
     }
-
     return (
         <AddEmissionModalBody
             toogleMode={props.toogleMode}

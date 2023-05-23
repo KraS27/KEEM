@@ -7,14 +7,15 @@ export const MODAL_MODES = {
     ADD_EMISSION: 1
 };
 const PoiModalWindowContainer = (props) => {
-
+    debugger;
     const [mode, setMode] = useState(MODAL_MODES.DISPLAY_EMISSIONS);
     const [show, setShow] = useState(false);
     const [emissions, setEmissions] = useState([]);
     const [newEmissions, setNewEmissions] = useState([]);
-
     const handleClose = () =>{
-        toogleMode();
+        if(mode === MODAL_MODES.ADD_EMISSION)
+            toogleMode();
+
         setShow(false);
     }
     const handleShow = () => setShow(true);
