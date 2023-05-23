@@ -5,6 +5,7 @@ import {Table} from "react-bootstrap";
 const DisplayEmissionModalBody = (props) => {
 
     let mapEmissionToTableRow;
+    let mapNewEmissionToTableRow;
 
     if(props.emissions != null){
         mapEmissionToTableRow = props.emissions.map(e =>
@@ -19,6 +20,20 @@ const DisplayEmissionModalBody = (props) => {
             </tr>
         )
     }
+    if(props.newEmissions != null){
+        mapNewEmissionToTableRow = props.newEmissions.map(e =>
+            <tr>
+                <td>{e.elementName}</td>
+                <td>{e.valueAvg}</td>
+                <td>{e.valueMax}</td>
+                <td>{e.day}</td>
+                <td>{e.month}</td>
+                <td>{e.year}</td>
+                <td>{e.measure}</td>
+            </tr>
+        )
+    }
+
 
     return (
         <div>
@@ -38,6 +53,7 @@ const DisplayEmissionModalBody = (props) => {
                 </thead>
                 <tbody>
                 {mapEmissionToTableRow}
+                {mapNewEmissionToTableRow}
                 </tbody>
             </Table>
         </div>

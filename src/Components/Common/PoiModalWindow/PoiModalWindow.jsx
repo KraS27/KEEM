@@ -26,10 +26,14 @@ const PoiModalWindow = (props) => {
                         ?
                         <DisplayEmissionModalBody
                             emissions={props.emissions}
+                            newEmissions={props.newEmissions}
                             marker={props.marker}
                         />
                         :
-                        <AddEmissionModalBodyContainer />
+                        <AddEmissionModalBodyContainer
+                            newEmissions={props.newEmissions}
+                            setNewEmissions={props.setNewEmissions}
+                        />
                     }
                 </Modal.Body>
                 <Modal.Footer>

@@ -42,6 +42,7 @@ const PoiModalWindowContainer = (props) => {
                         toogleMode={toogleMode}
                         emissions={emissions}
                         marker={props.marker}
+                        setNewEmissions={setNewEmissions}
                         newEmissions={newEmissions}
         />
     );

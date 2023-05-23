@@ -1,7 +1,5 @@
 import React from 'react';
 import {MDBInput} from "mdb-react-ui-kit";
-import s from "./AddEmissionModalBody.module.css"
-
 
 const AddEmissionModalBody = () => {
     return (
