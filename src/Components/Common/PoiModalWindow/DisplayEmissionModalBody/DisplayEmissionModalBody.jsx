@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./PoiModalWindow.module.css";
+import s from "../PoiModalWindow.module.css";
 import {Table} from "react-bootstrap";
 
 const DisplayEmissionModalBody = (props) => {

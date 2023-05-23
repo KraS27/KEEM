@@ -26,10 +26,10 @@ const CustomPoiModalWindow = (props) => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.handleClose}>
-                        Close
+                        Закрити
                     </Button>
                     <Button variant="primary" onClick={props.handleClose}>
-                        Save Changes
+                        Зберегти зміни
                     </Button>
                 </Modal.Footer>
             </Modal>

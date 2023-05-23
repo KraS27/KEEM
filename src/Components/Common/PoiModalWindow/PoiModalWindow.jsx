@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import s from "./PoiModalWindow.module.css"
-import DisplayEmissionModalBody from "./DisplayEmissionModalBody";
+import DisplayEmissionModalBody from "./DisplayEmissionModalBody/DisplayEmissionModalBody";
+import AddEmissionModalBodyContainer from "./AddEmissionModalBody/AddEmissionModalBodyContainer";
 
 const MODAL_MODES = {
     DISPLAY_EMISSIONS: 0,
@@ -47,13 +48,20 @@ const PoiModalWindow = (props) => {
                             marker={props.marker}
                         />
                         :
-                        <></>
+                        <AddEmissionModalBodyContainer />
                     }
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
-                        Додати забруднення
-                    </Button>
+                    {mode === MODAL_MODES.DISPLAY_EMISSIONS
+                        ?
+                        <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
+                            Додати забруднення
+                        </Button>
+                        :
+                        <Button variant="warning" className={s.addEmissionButton} onClick={toogleMode}>
+                            Назад
+                        </Button>
+                    }
                     <Button variant="secondary" onClick={props.handleClose}>
                         Закрити
                     </Button>
