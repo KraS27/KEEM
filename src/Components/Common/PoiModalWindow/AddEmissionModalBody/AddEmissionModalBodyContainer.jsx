@@ -5,11 +5,11 @@ import {useParams} from "react-router-dom";
 const AddEmissionModalBodyContainer = (props) => {
 
     const urlParams = useParams();
-    const [day, setDay] = useState("");
-    const [month, setMonth] = useState("");
-    const [year, setYear] = useState("");
-    const [valueAvg, setValueAvg] = useState("");
-    const [valueMax, setValueMax] = useState("");
+    const [day, setDay] = useState();
+    const [month, setMonth] = useState();
+    const [year, setYear] = useState();
+    const [valueAvg, setValueAvg] = useState();
+    const [valueMax, setValueMax] = useState();
     const [measure, setMeasure] = useState("");
     const [elementName, setElementName] = useState("");
 

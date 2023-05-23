@@ -11,6 +11,7 @@ const CustomPoiModalWindowContainer = (props) => {
     const [latitude, setLatitude] = useState(props.marker.latitude);
     const [longitude, setLongitude] = useState(props.marker.longitude);
     const handleClose = () => {
+        debugger;
         axios.post(
         "https://localhost:7199/pois",
         {

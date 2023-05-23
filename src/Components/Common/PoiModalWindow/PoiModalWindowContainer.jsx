@@ -15,7 +15,6 @@ const PoiModalWindowContainer = (props) => {
     const handleClose = () =>{
         if(mode === MODAL_MODES.ADD_EMISSION)
             toogleMode();
-
         setShow(false);
     }
     const handleShow = () => setShow(true);
@@ -30,6 +29,25 @@ const PoiModalWindowContainer = (props) => {
             default: setMode(MODAL_MODES.DISPLAY_EMISSIONS);
         }
     }
+
+    const saveChange = () => {
+        debugger;
+        if(newEmissions != null){
+            axios.post(
+                "https://localhost:7199/emissions/range",
+                {
+                    emissionsDTO: newEmissions
+                },
+            ).then(response => {
+                if(response.data.data === true)
+                    setShow(false);
+            })
+        }
+        else {
+            setShow(false);
+        }
+    }
+
     useEffect(() => {
         axios.get(`https://localhost:7199/emissions/poi?idPoi=${props.marker.id}`).then(response => {
             setEmissions(response.data.data);
@@ -46,6 +64,7 @@ const PoiModalWindowContainer = (props) => {
                         marker={props.marker}
                         setNewEmissions={setNewEmissions}
                         newEmissions={newEmissions}
+                        saveChange={saveChange}
         />
     );
 }

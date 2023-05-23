@@ -74,7 +74,7 @@ const DisplayEmissionModalBody = (props) => {
                     <Button variant="secondary" onClick={props.handleClose}>
                         Закрити
                     </Button>
-                    <Button variant="primary" onClick={props.handleClose}>
+                    <Button variant="primary" onClick={props.saveChange}>
                         Зберегти зміни
                     </Button>
                 </ModalFooter>
